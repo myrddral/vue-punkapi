@@ -2,59 +2,63 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="rgba(194, 158, 80, 1)"
+      src="./assets/BrewDogBanner2.png"
+      height="140"
+      shrink-on-scroll
       dark
+      dense
+      elevate-on-scroll
+      fade-img-on-scroll
+      scroll-target="#scrolling-techniques-2"
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <template v-slot:img="{ props }">
+        <v-img v-bind="props"></v-img>
+      </template>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
+      <v-btn href="https://www.brewdog.com/uk/" target="_blank" text>
+        <span>Brewdog Website</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
+    <v-sheet
+      id="scrolling-techniques-2"
+      class="overflow-y-auto"
+      max-height="100vh"
+    >
+      <v-main class="cyan accent-4">
+        <Home />
+      </v-main>
+    </v-sheet>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Home from "./components/Home";
 
 export default {
-  name: 'App',
+  //hide global window scrollbar, since we scroll the v-sheet content only
+  mounted: function() {
+    let elHtml = document.getElementsByTagName('html')[0]
+    elHtml.style.overflowY = 'hidden'
+  },
+  destroyed: function() {
+    let elHtml = document.getElementsByTagName('html')[0]
+    elHtml.style.overflowY = null
+  },
+
+  name: "App",
 
   components: {
-    HelloWorld,
+    Home,
   },
 
   data: () => ({
     //
   }),
 };
+
 </script>
+
