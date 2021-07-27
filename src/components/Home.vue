@@ -54,10 +54,11 @@
             md="4"
             lg="3"
           >
+             <v-hover v-slot="{ hover }">
             <v-card
+            :elevation="hover ? 16 : 4"
               min-height="300"
               class="pa-4 d-flex flex-column justify-space-between rounded-xl"
-              elevation="12"
             >
               <div class="d-flex">
                 <v-img
@@ -95,6 +96,7 @@
               </div>
               <BeerCard v-bind:item="item" />
             </v-card>
+            </v-hover>
           </v-col>
         </v-row>
       </template>
