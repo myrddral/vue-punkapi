@@ -103,7 +103,7 @@
 
       <template v-slot:footer>
         <v-row class="my-6 mx-0" align="center" justify="center">
-          <span class="grey--text">Items per page</span>
+          <span class="black--text">Items per page</span>
           <v-menu offset-y>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
@@ -131,14 +131,14 @@
 
           <v-spacer></v-spacer>
 
-          <span class="mr-4 grey--text">
+          <span class="mr-4 black--text">
             Page {{ page }} of {{ numberOfPages }}
           </span>
           <v-btn
             fab
             dark
             color="yellow darken-3"
-            class="mr-1"
+            class="mr-5"
             @click="formerPage"
           >
             <v-icon>mdi-chevron-left</v-icon>
